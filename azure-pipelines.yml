@@ -32,9 +32,7 @@ stages:
     displayName: Build
     pool: 'default'    
     steps:
-    - script: ls
-    - script: sh create_image.sh
-    - script: mvn package && java -jar target/demo.jar
+    - script: mvn package
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
