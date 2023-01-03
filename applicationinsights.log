@@ -1,0 +1,2 @@
+2023-01-02 09:36:49.388+05:30 INFO  c.m.applicationinsights.agent - Application Insights Java Agent 3.4.3 started successfully (PID 18276, JVM running for 4.878 s)
+2023-01-02 09:36:49.407+05:30 INFO  c.m.applicationinsights.agent - Java version: 11.0.17, vendor: Amazon.com Inc., home: C:\Program Files\Amazon Corretto\jdk11.0.17_8
