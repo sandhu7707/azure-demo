@@ -52,7 +52,7 @@ stages:
 
   jobs:
   - deployment: Deploy
-    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
+    # condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
     pool: 'default'
     environment: 'sandhu7707azuredemo-1130.default'
@@ -81,7 +81,7 @@ stages:
                 
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
+    # condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
     pool: 'default'
 
     environment: 'sandhu7707azuredemo-1130.$(k8sNamespaceForPR)'
