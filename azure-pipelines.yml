@@ -45,7 +45,7 @@ stages:
     - upload: manifests
       artifact: manifests
 
-- stage: Deploy1
+- stage: Deploy
   displayName: Deploy stage
   dependsOn: Build
 
@@ -77,10 +77,7 @@ stages:
                 $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
-- stage: Deploy2
-  displayName: Deploy stage
-  dependsOn: Deploy1
-  jobs:
+                
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
