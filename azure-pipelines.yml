@@ -30,8 +30,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool: 'self'    
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
@@ -54,8 +53,7 @@ stages:
   - deployment: Deploy
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
+    pool: 'self'
     environment: 'sandhu7707azuredemo-1130.default'
     strategy:
       runOnce:
@@ -86,8 +84,7 @@ stages:
   - deployment: DeployPullRequest
     displayName: Deploy Pull request
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))
-    pool:
-      vmImage: $(vmImageName)
+    pool: 'self'
 
     environment: 'sandhu7707azuredemo-1130.$(k8sNamespaceForPR)'
     strategy:
