@@ -1,0 +1,11 @@
+Index: create_image.sh
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>mvn package && java -jar target/demo.jar\r\n
+===================================================================
+diff --git a/create_image.sh b/create_image.sh
+--- a/create_image.sh	
++++ b/create_image.sh	
+@@ -1,1 +1,1 @@
+-mvn package && java -jar target/demo.jar
++mvn package
