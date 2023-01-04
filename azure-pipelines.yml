@@ -28,8 +28,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: $(vmImageName)
+    pool: 'default'
     steps:
     - script: mvn package
     - task: Docker@2
@@ -52,8 +51,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    pool:
-      vmImage: $(vmImageName)
+    pool: 'default'
     environment: 'sandhu7707azuredemo-6689.default'
     strategy:
       runOnce:
